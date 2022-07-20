@@ -1,0 +1,56 @@
+
+$orange: hsl(26, 100%, 55%);
+$paleOrange: hsl(25, 100%, 94%);
+
+$darkBlue: hsl(220, 13%, 13%);
+$darkGrayishBlue: hsl(219, 9%, 45%);
+$grayishBlue: hsl(220, 14%, 75%);
+$lightGrayishBlue: hsl(223, 64%, 98%);
+$white: hsl(0, 0%, 100%);
+//$black: (with 75% opacity for lightbox background): hsl(0, 0%, 0%);
+
+.c-orange{
+    color: $orange;
+}
+.c-pale-orange{
+    color: $paleOrange;
+}
+.c-white{
+    color: $white;
+}
+.c-blue-100{
+    color: $lightGrayishBlue;
+}
+.c-blue-300{
+    color: $grayishBlue;
+}
+.c-blue-500{
+    color: $darkGrayishBlue;
+}
+.c-blue-900{
+    color: $darkBlue;
+}
+.bg-orange{
+    background-color: $orange;
+}
+.bg-pale-orange{
+    background-color: $paleOrange;
+}
+.bg-white{
+    background-color: $white;
+}
+.bg-blue-100{
+    background-color: $lightGrayishBlue;
+}
+.bg-blue-300{
+    background-color: $grayishBlue;
+}
+.bg-blue-500{
+    background-color: $darkGrayishBlue;
+}
+.bg-blue-900{
+    background-color: $darkBlue;
+}
+.fill-pale-orange{
+    fill: $paleOrange;
+}

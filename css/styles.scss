@@ -1,0 +1,257 @@
+
+@use 'utilities';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+.main{
+    position: relative;
+    overflow: hidden;
+}
+[data-main-state="disable"]:before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: hsl(10, 0%, 1%, 50%);
+    z-index: 1;
+}
+.header{
+    display: flex;
+    padding: 1.6em;
+
+    img{
+        height: 1.4rem;
+        margin: 0 .4em;
+
+        &:nth-child(2){
+            margin-right: auto;
+        }
+    }
+}
+.header__menu{
+    position: absolute;
+    width: 60%;
+    padding: 1.6em;
+    font-size: 1.2rem;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    transition: transform 350ms;
+    z-index: 2;
+}
+.menu img{
+    margin-bottom: 1em;
+}
+.menu__item{
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+.carousel{
+    isolation: isolate;
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+}
+.carousel__arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    padding: 1.4em;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+
+    img{
+        width: .5rem;
+        height: .5rem;
+    }
+}
+.arrow-previous{
+    left: 5%;
+}
+.arrow-next{
+    right: 5%;
+}
+.slider{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    transition: transform 500ms;
+}
+.slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.description{
+    padding: 1em;
+}
+.description__brand{
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    font-weight: 800;
+    margin-bottom: 1em;
+}
+.description__title{
+    font-weight: 800;
+    font-size: clamp(1.6rem, 6vw, 3rem);
+}
+.description__text{
+    font-size: clamp(1rem, 6vw, 1.3rem);
+    text-align: justify;
+    margin: 1em 0;
+}
+.description__price{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.price__current{
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 800;
+}
+.price__discount{
+    height: 80%;
+    display: grid;
+    place-items: center;
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    font-weight: 700;
+    border-radius: .25em;
+    margin-right: auto;
+}
+.price__old{
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    text-decoration: line-through;
+}
+.buy{
+    padding: 1em;
+}
+.buy__amount{
+    display: flex;
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+    padding: .4em 1em;
+    justify-content: space-between;
+    align-items: center;
+}
+.button{
+    display: flex;
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+    width: 100%;
+    border: none;
+    border-radius: .50em;
+    padding: .8em 0;
+    justify-content: center;
+    align-items: center;
+    gap: .6em;
+    cursor: pointer;
+}
+.icon{
+    cursor: pointer;
+}
+.cart{
+    position: absolute;
+    height: 100px;
+    border-radius: .50em;
+    bottom: -150%;
+    left: 5%;
+    right: 5%;
+    z-index: 2;
+
+    p{
+        padding: .6em 1.4em;
+        border-bottom: .125em solid blue;
+    }
+}
+
+[data-display-arrow = "hidden"]{
+    display: none;
+}
+[data-shop-cart-state = "hidden"]{
+    display: none;
+}
+
+@media screen and (min-width:900px){
+    [data-name = 'toggleMenu']{
+        display: none;
+    }
+    .header__menu{
+        position: initial;
+        width: 100%;
+        transition: none;
+    }
+    .menu{
+        display: flex;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr 5fr 1fr;
+    }
+    .carousel{
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .carousel__arrow{
+        display: none;
+    }
+    .slider{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em;
+        transform: none;
+        transition: 0ms;
+    }
+    .preview{
+        width: 100%;
+        height: 100%;
+        grid-column: 1 / -1;
+        border-radius: 1em;
+        overflow: hidden;
+        cursor: pointer;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .slide{
+        position: initial;
+        border-radius: 1em;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        img{
+            object-fit: contain;
+        }
+    }
+    [data-slide-order='currentSlide']{
+        border: .2em solid orange;
+        filter: opacity(.6);
+    }
+    .description{
+        grid-column: 4 / 5;
+    }
+    .buy{
+        grid-column: 4 / 5;
+    }
+}
