@@ -69,7 +69,7 @@ function showResponsiveCarousel(mql, slider, largeImages, thumbnails){
     }
     showMobileCarousel(slider, largeImages)
 }
-let mql = window.matchMedia('(min-width:900px)');
+let mql = window.matchMedia('(min-width:1024px)');
 mql.addEventListener('change', ()=>{
     showResponsiveCarousel(mql, slider, sneakers.images.large, sneakers.images.thumbnail);
 });
