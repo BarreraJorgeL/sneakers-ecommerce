@@ -9,6 +9,7 @@ $lightGrayishBlue: hsl(223, 64%, 98%);
 $white: hsl(0, 0%, 100%);
 //$black: (with 75% opacity for lightbox background): hsl(0, 0%, 0%);
 
+// Colors
 .c-orange{
     color: $orange;
 }
@@ -30,6 +31,11 @@ $white: hsl(0, 0%, 100%);
 .c-blue-900{
     color: $darkBlue;
 }
+.fill-pale-orange{
+    fill: $paleOrange;
+}
+
+// Backgrounds
 .bg-orange{
     background-color: $orange;
 }
@@ -51,9 +57,64 @@ $white: hsl(0, 0%, 100%);
 .bg-blue-900{
     background-color: $darkBlue;
 }
-.fill-pale-orange{
-    fill: $paleOrange;
-}
+
 .bd-bottom{
     border-bottom: .110em solid $darkGrayishBlue;
+}
+
+// Text
+.text-justify{
+    text-align: justify;
+}
+
+// Font-size
+.fz-100{
+    font-size: clamp(1rem, 2vw, 1.3rem);
+}
+.fz-200{
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+.fz-300{
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+// Padding
+.p-100{
+    padding: .4em;
+}
+.p-200{
+    padding: 1em;
+}
+
+// Font-weight
+.fw-300{
+    font-weight: 200;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-800{
+    font-weight: 800;
+}
+.fw-900{
+    font-weight: 900;
+}
+
+// Grid
+[class*='grid-']{
+    display: grid;
+    gap: 1em;
+}
+.grid-auto-flow{
+    grid-auto-flow: column;
+    align-items: center;
+}
+.grid-even-columns-300{
+    grid-template-columns: repeat(auto-fit, minmax(min(28rem, 100%), 1fr));
+    gap: 6rem;
+}
+.grid-even-columns-100{
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+}
+.flex{
+    display: flex;
 }

@@ -18,6 +18,7 @@ const sneakers = {
 const main = document.querySelector('[data-main-state]')
 const navBar = document.querySelector('[data-menu-state]');
 
+const carousel = document.querySelector('[data-name="carousel"]');
 const slider = document.querySelector('[data-name="slider"]');
 
 const plusButton = document.querySelector('[data-name = "increaseAmount"]');
@@ -45,6 +46,12 @@ function setSlidePosition(slide, index){
 }
 function showMobileCarousel(slider, images){
     slider.innerHTML='';
+    let preview = document.querySelector('.preview');
+    console.log(preview)
+    if(preview){
+        preview.parentNode.removeChild(preview);
+        console.log('eliminado')
+    }
     images.forEach((image, index) => {
         let firstSlide = (index === 0 ? 'currentSlide' : '');
         slider.insertAdjacentHTML('beforeend',`<li class="[ slide ]" data-slide-order="${firstSlide}"><img src="images/${image}" alt=""></li>`);
@@ -55,7 +62,8 @@ function showMobileCarousel(slider, images){
     hideArrows(currentSlide);
 }
 function showDesktopCarousel(slider, images){
-    slider.innerHTML = '<li class="[ preview ]"><img src="images/image-product-1.jpg" alt="" data-name="slidePreview"></li>';
+    slider.innerHTML = '';
+    slider.insertAdjacentHTML('beforebegin',`<figure class="[ preview ]"><img src="images/image-product-1.jpg" alt="" data-name="slidePreview"></figure>`)
     images.forEach((image, index) => {
         let firstSlide = (index === 0 ? 'currentSlide' : '');
         slider.insertAdjacentHTML('beforeend',`<li class="[ slide ]" data-slide-order="${firstSlide}"><img src="images/${image}" alt="" data-name="slideImage"></li>`);
@@ -69,7 +77,7 @@ function showResponsiveCarousel(mql, slider, largeImages, thumbnails){
     }
     showMobileCarousel(slider, largeImages)
 }
-let mql = window.matchMedia('(min-width:1024px)');
+let mql = window.matchMedia('(min-width:900px)');
 mql.addEventListener('change', ()=>{
     showResponsiveCarousel(mql, slider, sneakers.images.large, sneakers.images.thumbnail);
 });

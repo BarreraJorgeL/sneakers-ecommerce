@@ -1,0 +1,38 @@
+
+/* MAIN-CONTENT */
+.description{
+    padding: 1em;
+}
+.description__brand{
+    margin-bottom: 1em;
+}
+.description__text{
+    margin: 1em 0;
+}
+.description__price{
+    justify-content: space-between;
+}
+.price__discount{
+    padding: .4em;
+    border-radius: .25em;
+}
+.price__old{
+    text-decoration: line-through;
+}
+.buy{
+    margin-block: 1rem;
+}
+.buy__amount{
+    padding: .4em;
+    justify-content: space-between;
+}
+.button{
+    display: flex;
+    border: none;
+    border-radius: .50em;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    gap: .6em;
+    cursor: pointer;
+}

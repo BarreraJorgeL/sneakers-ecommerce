@@ -9,29 +9,39 @@
 </head>
 <body>
   <main class="[ main ][ bg-white ]" data-main-state="enable">
-    <header class="[ header ][ bd-bottom ]">
-      <img class="[ icon ]" src="images/icon-menu.svg" data-name="toggleMenu"  alt="">
-      <img class="[ icon ]" src="images/logo.svg" alt="">
-      <nav class="[ header__menu ][ bg-white ]" data-menu-state="closed">
-        <ul class="[ menu ][ c-blue-500 ]">
-          <img class="[ icon ]" src="images/icon-close.svg" data-name="toggleMenu" alt="">
-          <li class="[ menu__item ]">Collections</li>
-          <li class="[ menu__item ]">Men</li>
-          <li class="[ menu__item ]">Women</li>
-          <li class="[ menu__item ]">About</li>
-          <li class="[ menu__item ]">Contact</li>
-        </ul>
-      </nav>
-      <img class="[ icon ]" src="images/icon-cart.svg" data-name="toggleShopCart" alt="">
-      <img class="[ icon ]" src="images/image-avatar.png" alt="">
-      <section class="[ cart ]" data-name="shopCart" data-shop-cart-state="hidden">
-        <p>Cart</p>
-        <div class="[ cart__container ]"></div>
-      </section>
+    <header class="[ header ][ bd-bottom grid-auto-flow ]">
+      <div class="[ grid-auto-flow ]">
+        <img class="[ icon ]" src="images/icon-menu.svg" data-name="toggleMenu"  alt="">
+        <img class="[ icon ]" src="images/logo.svg" alt="">
+        <nav class="[ header__menu ][ fz-100 bg-white ]" data-menu-state="closed">
+          <ul class="[ menu ][ c-blue-500 ]">
+            <li>
+              <img class="[ icon ]" src="images/icon-close.svg" data-name="toggleMenu" alt="">
+            </li>
+            <li class="[ menu__item ]">Collections</li>
+            <li class="[ menu__item ]">Men</li>
+            <li class="[ menu__item ]">Women</li>
+            <li class="[ menu__item ]">About</li>
+            <li class="[ menu__item ]">Contact</li>
+          </ul>
+        </nav>
+      </div>
+      <div class="[ grid-auto-flow ]">
+        <div class="[ relative ]">
+          <img class="[ icon ]" src="images/icon-cart.svg" data-name="toggleShopCart" alt="">
+          <section class="[ cart ]" data-name="shopCart" data-shop-cart-state="hidden">
+            <p>Cart</p>
+            <div class="[ cart__container ]" data-shop-cart-satus="empty"></div>
+          </section>
+        </div>
+        <div>
+          <img class="[ icon ]" src="images/image-avatar.png" alt="">
+        </div>
+      </div>
     </header>
-    <div class="[ content ]">
-      <section class="[ carousel ]">
-        <ul class="[ slider ]" data-name="slider"></ul>
+    <div class="[ content ][ grid-even-columns-300 ]">
+      <section class="[ carousel ]" data-name="carousel">
+        <ul class="[ slider ][ grid-auto-flow ]" data-name="slider"></ul>
         <div class="[ carousel__arrow arrow-previous icon ][ bg-white ]" data-name='previousArrow' data-display-arrow="hidden">
           <img src="images/icon-previous.svg" alt="">
         </div>
@@ -40,27 +50,27 @@
         </div>
       </section>
       <section class="[ description ]">
-        <p class="[ description__brand ][ c-orange ]" data-container="brand"></p>
-        <h1 class="[ description__title ]" data-container="product"></h1>
-        <p class="[ description__text ][ c-blue-500 ]" data-container="description"></p>
-        <div class="[ description__price ]">
-          <h2 class="[ price__current ]" data-container="currentPrice"></h2>
-          <h2 class="[ price__discount ][ c-orange bg-pale-orange ]" data-container="currentDiscount"></h2>
-          <p class="[ price__old ][ c-blue-500 ]" data-container="price"></p>
+        <p class="[ description__brand ][ c-orange fz-100 fw-800 ]" data-container="brand"></p>
+        <h1 class="[ description__title ][ fz-300 fw-800 ]" data-container="product"></h1>
+        <p class="[ description__text ][ c-blue-500 fz-100 text-justify ]" data-container="description"></p>
+        <div class="[ description__price ][ grid-auto-flow ]">
+          <h2 class="[ price__current ][ fz-300 fw-800 ]" data-container="currentPrice"></h2>
+          <h2 class="[ price__discount ][ fz-100 fw-800 c-orange bg-pale-orange ]" data-container="currentDiscount"></h2>
+          <h3 class="[ price__old ][ fz-100 c-blue-500 ]" data-container="price"></h3>
         </div>
-      </section>
-      <section class="[ buy ]">
-        <div class="[ buy__amount ][ bg-blue-100 ]">
-          <img class="[ icon ]" src="images/icon-minus.svg" data-name="decreaseAmount" alt="">
-          <p class="[ current__amount ]" data-name="currentAmount">0</p>
-          <img class="[ icon ]" src="images/icon-plus.svg" data-name="increaseAmount" alt="">
-        </div>
-        <button class="[ button ][ c-pale-orange bg-orange ]">
-          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
-            <path class="[ fill-pale-orange ]" d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/>
-          </svg>
-          Add to cart
-        </button>
+        <section class="[ buy ][ grid-even-columns-100 ]">
+          <div class="[ buy__amount ][ fz-200 bg-blue-100 grid-auto-flow ]">
+            <img class="[ icon ]" src="images/icon-minus.svg" data-name="decreaseAmount" alt="">
+            <p class="[ current__amount ]" data-name="currentAmount">0</p>
+            <img class="[ icon ]" src="images/icon-plus.svg" data-name="increaseAmount" alt="">
+          </div>
+          <button class="[ button ][ fz-100 c-pale-orange bg-orange ]">
+            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path class="[ fill-pale-orange ]" d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/>
+            </svg>
+            Add to cart
+          </button>
+        </section>
       </section>
     </div>
   </main>
