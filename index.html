@@ -18,26 +18,29 @@
             <li>
               <img class="[ icon ]" src="images/icon-close.svg" data-name="toggleMenu" alt="">
             </li>
-            <li class="[ menu__item ]">Collections</li>
-            <li class="[ menu__item ]">Men</li>
-            <li class="[ menu__item ]">Women</li>
-            <li class="[ menu__item ]">About</li>
-            <li class="[ menu__item ]">Contact</li>
+            <li class="[ menu__item ][ flex-center ]">Collections</li>
+            <li class="[ menu__item ][ flex-center ]">Men</li>
+            <li class="[ menu__item ][ flex-center ]">Women</li>
+            <li class="[ menu__item ][ flex-center ]">About</li>
+            <li class="[ menu__item ][ flex-center ]">Contact</li>
           </ul>
         </nav>
       </div>
       <div class="[ grid-auto-flow ]">
         <div class="[ relative ]">
           <img class="[ icon ]" src="images/icon-cart.svg" data-name="toggleShopCart" alt="">
-          <section class="[ cart ]" data-name="shopCart" data-shop-cart-state="hidden">
-            <p>Cart</p>
-            <div class="[ cart__container ]" data-shop-cart-satus="empty"></div>
-          </section>
+          <span class="[ cart--span ][ fz-xsmall bg-orange c-white ]"></span>
         </div>
         <div>
           <img class="[ icon ]" src="images/image-avatar.png" alt="">
         </div>
       </div>
+      <section class="[ cart ][ bg-white ]" data-name="shopCart" data-shop-cart-state="hidden">
+        <h4>Cart</h4>
+        <div class="[ cart__content ][ grid-auto-row ]" data-shop-cart-container="empty">
+          <p class="[ text-center ]">Your cart is empty.</p>
+        </div>
+      </section>  
     </header>
     <div class="[ content ][ grid-even-columns-300 ]">
       <section class="[ carousel ]" data-name="carousel">
@@ -64,7 +67,7 @@
             <p class="[ current__amount ]" data-name="currentAmount">0</p>
             <img class="[ icon ]" src="images/icon-plus.svg" data-name="increaseAmount" alt="">
           </div>
-          <button class="[ button ][ fz-100 c-pale-orange bg-orange ]">
+          <button class="[ button ][ fz-100 c-pale-orange bg-orange ]" data-name="addToCart">
             <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
               <path class="[ fill-pale-orange ]" d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/>
             </svg>

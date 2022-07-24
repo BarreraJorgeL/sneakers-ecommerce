@@ -154,6 +154,46 @@ function toggleShopCart(shopCart){
             break
     }
 }
+const shopcartContainer = document.querySelector('[data-shop-cart-container]')
+const shopcartSpan = document.querySelector('.cart--span')
+function fillCart(shopcartContainer, product){
+    let productImage = product.images.thumbnail[0];
+    let productTitle = product.product;
+    let productPrice = product.getCurrentPrice();
+    let amount = document.querySelector('[data-name="currentAmount"]').innerText;
+    let trashIcon = 'images/icon-delete.svg';
+    let cartItemDesign = `<div class="[ grid-auto-flow ]"><figure><img src="images/${productImage}"></figure><div><h4>${productTitle}</h4><p>$${productPrice} x ${amount} = <strong class="[ fw-600 ]">$${parseInt(productPrice) * parseInt(amount)}</strong></p></div><img class="[ icon ]" src="${trashIcon}" data-name="deleteProduct"></div>`;
+    shopcartContainer.insertAdjacentHTML('afterbegin', cartItemDesign);
+}
+function deleteFromShopCart(shopcartContainer, product){
+    shopcartContainer.removeChild(product)
+    if(shopcartContainer.childElementCount === 1){
+        shopcartContainer.innerHTML = '<p class="[ text-center ]">Your cart is empty.</p>';
+        shopcartContainer.dataset.shopCartContainer = 'empty';
+    }
+    return
+}
+function addToCart(shopcartContainer, product){
+    if(shopcartContainer.dataset.shopCartContainer === 'empty'){
+        shopcartContainer.innerHTML = '<button class="[ button ][ fz-100 c-pale-orange bg-orange ]">Checkout</button>';
+        fillCart(shopcartContainer, product);
+        shopcartContainer.dataset.shopCartContainer = 'fill';
+        return
+    }
+    fillCart(shopcartContainer, product);
+    return
+}
+function updateShopcartSpan(shopcartContainer, shopcartSpan){
+    if(shopcartContainer.dataset.shopCartContainer === 'fill'){
+        shopcartSpan.style.display = 'initial'
+        shopcartSpan.innerText = shopcartContainer.childElementCount - 1;
+        return
+    }
+    shopcartSpan.style.display = 'none'
+    shopcartSpan.innerText = ''
+}
+
+
 document.addEventListener('click', e => {
     switch(e.target.dataset.name){
         case 'toggleMenu':
@@ -183,6 +223,14 @@ document.addEventListener('click', e => {
         case 'slideImage':
             let previewContainer = document.querySelector('.preview')
             let slides = Array.from(document.querySelectorAll('[data-slide-order]'));
-            showPreviewImage(previewContainer, e.target, slides, sneakers.images.large)
+            showPreviewImage(previewContainer, e.target, slides, sneakers.images.large);
+            break
+        case 'addToCart':
+            addToCart(shopcartContainer, sneakers);
+            updateShopcartSpan(shopcartContainer, shopcartSpan)
+            break
+        case 'deleteProduct':
+            deleteFromShopCart(shopcartContainer, e.target.parentNode)
+            updateShopcartSpan(shopcartContainer, shopcartSpan)
     }
 })

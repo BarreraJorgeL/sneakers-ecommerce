@@ -66,8 +66,15 @@ $white: hsl(0, 0%, 100%);
 .text-justify{
     text-align: justify;
 }
+.text-center{
+    text-align: center;
+}
 
 // Font-size
+
+.fz-xsmall{
+    font-size: .6rem;
+}
 .fz-100{
     font-size: clamp(1rem, 2vw, 1.3rem);
 }
@@ -76,13 +83,6 @@ $white: hsl(0, 0%, 100%);
 }
 .fz-300{
     font-size: clamp(1.5rem, 4vw, 3rem);
-}
-// Padding
-.p-100{
-    padding: .4em;
-}
-.p-200{
-    padding: 1em;
 }
 
 // Font-weight
@@ -108,13 +108,19 @@ $white: hsl(0, 0%, 100%);
     grid-auto-flow: column;
     align-items: center;
 }
+.grid-auto-row{
+    grid-auto-flow: row;
+    gap: 1em;
+}
 .grid-even-columns-300{
     grid-template-columns: repeat(auto-fit, minmax(min(28rem, 100%), 1fr));
-    gap: 6rem;
+    gap: clamp(1rem, 4vw, 6rem);
 }
 .grid-even-columns-100{
     grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
 }
-.flex{
+.flex-center{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
