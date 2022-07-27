@@ -1,10 +1,7 @@
-
 @use 'header';
-@use 'images-carousel';
 @use 'main-content';
-@use 'shopcart';
 @use 'utilities';
-@use 'hover';
+@use 'components';
 
 *{
     margin: 0;
@@ -24,11 +21,10 @@
     inset: 0;
     background-color: hsl(10, 0%, 1%, 50%);
     z-index: 1;
+    @media only screen and (min-width: 900px){
+        display: none;
+    }
 }
-.relative{
-    position: relative;
-}
-
 [data-display-arrow = "hidden"]{
     display: none;
 }
@@ -59,10 +55,10 @@
         display: flex;
         gap: .8em;
         height: 100%;
-    }
-    .menu__item{
-        height: 100%;
-        margin: 0;
+        &__item{
+            height: 100%;
+            margin: 0;
+        }
     }
     .content{
         padding: 0 max(2rem, 12%);
@@ -71,35 +67,32 @@
     .carousel{
         width: 100%;
         height: fit-content;
-    }
-    .carousel__arrow{
-        display: none;
+        &__arrow{
+            display: none;
+        }
     }
     .slider{
         grid-auto-columns: 1fr;
         transition: 0ms;
-    }
-    .slide--preview{
-        margin-bottom: 1rem;
-        cursor: pointer;
-        img{
-            width: 100%;
-            height: 100%;
-            border-radius: 1em;
-        }
     }
     .slide{
         position: initial;
         border-radius: 1em;
         overflow: hidden;
         cursor: pointer;
+        &--preview{
+            margin-bottom: 1rem;
+            cursor: pointer;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 1em;
+            }
+        }
     }
     [data-slide-order='currentSlide']{
         border: .2em solid orange;
-        filter: opacity(.6);
-    }
-    [data-main-state]::before{
-        display: none;
+        opacity: .6;
     }
     .shopcart{
         position: relative;

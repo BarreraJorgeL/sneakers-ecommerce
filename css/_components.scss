@@ -1,0 +1,40 @@
+// Grid
+[class*='grid-']{
+    display: grid;
+    gap: 1em;
+}
+.grid-auto-flow{
+    grid-auto-flow: column;
+    align-items: center;
+}
+.grid-auto-row{
+    grid-auto-flow: row;
+}
+.grid-even-columns-300{
+    grid-template-columns: repeat(auto-fit, minmax(min(28rem, 100%), 1fr));
+    gap: clamp(1rem, 4vw, 6rem);
+}
+.grid-even-columns-100{
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.relative{
+    position: relative;
+}
+.button{
+    display: flex;
+    border: none;
+    border-radius: .50em;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    gap: .6em;
+    cursor: pointer;
+    &:where(:hover, :focus){
+        opacity: .8;
+    }
+}
