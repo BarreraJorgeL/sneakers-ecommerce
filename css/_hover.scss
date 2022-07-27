@@ -1,3 +1,11 @@
+@use 'colors' as color;
+
 .menu__item:where(:focus, :hover){
-    border-bottom: .150em solid orange;
+    border-bottom: .150em solid color.$orange;
+}
+.login:where(:focus, :hover){
+    outline: .150em solid color.$orange;
+}
+.button:where(:focus, :hover){
+    opacity: .8;
 }

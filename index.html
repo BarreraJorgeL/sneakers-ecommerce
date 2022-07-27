@@ -8,47 +8,53 @@
   <title>E-commerce product page</title>
 </head>
 <body>
-  <main class="[ main ][ bg-white ]" data-main-state="enable">
+  <main class="[ main ][ bg-white relative ]" data-main-state="enable">
     <header class="[ header ][ bd-bottom grid-auto-flow ]">
-      <div class="[ grid-auto-flow ]">
-        <img class="[ icon ]" src="images/icon-menu.svg" data-name="toggleMenu"  alt="">
-        <img class="[ icon ]" src="images/logo.svg" alt="">
+      <div class="[ header--left ][ grid-auto-flow ]">
+        <figure class="[ menu__icon ]">
+          <img class="[ pointer ]" src="images/icon-menu.svg" data-name="toggleMenu"  alt="">
+        </figure>
+        <figure class="[ logo ]">
+          <img src="images/logo.svg" alt="">
+        </figure>
         <nav class="[ header__menu ][ fz-100 bg-white ]" data-menu-state="closed">
           <ul class="[ menu ][ c-blue-500 ]">
-            <li>
-              <img class="[ icon ]" src="images/icon-close.svg" data-name="toggleMenu" alt="">
+            <li class="[ menu__icon ][ pointer ]">
+              <img src="images/icon-close.svg" data-name="toggleMenu" alt="">
             </li>
-            <li class="[ menu__item ][ flex-center ]">Collections</li>
-            <li class="[ menu__item ][ flex-center ]">Men</li>
-            <li class="[ menu__item ][ flex-center ]">Women</li>
-            <li class="[ menu__item ][ flex-center ]">About</li>
-            <li class="[ menu__item ][ flex-center ]">Contact</li>
+            <li class="[ menu__item ][ flex-center pointer ]">Collections</li>
+            <li class="[ menu__item ][ flex-center pointer ]">Men</li>
+            <li class="[ menu__item ][ flex-center pointer ]">Women</li>
+            <li class="[ menu__item ][ flex-center pointer ]">About</li>
+            <li class="[ menu__item ][ flex-center pointer ]">Contact</li>
           </ul>
         </nav>
       </div>
-      <div class="[ grid-auto-flow ]">
-        <div class="[ relative ]">
-          <img class="[ icon ]" src="images/icon-cart.svg" data-name="toggleShopCart" alt="">
-          <span class="[ cart--span ][ fz-xsmall bg-orange c-white ]"></span>
+      <div class="[ header--rigth ][ grid-auto-flow ]">
+        <div class="[ shopcart ][ flex-center ]">
+          <figure class="[ shopcart__icon ][ flex-center relative ]">
+            <img class="[ pointer ]" src="images/icon-cart.svg" data-name="toggleShopCart" alt="">
+            <span class="[ shopcart--span ][ fz-xsmall bg-orange c-white ]" data-name="shopcartSpan"></span>
+          </figure>
+          <section class="[ cart ][ bg-white ]" data-name="shopCart" data-shop-cart-state="hidden">
+            <h4 class="[ cart__title ]">Cart</h4>
+            <div class="[ cart__content ][ grid-auto-row text-center ]" data-shop-cart-container="empty">
+              <p>Your cart is empty.</p>
+            </div>
+          </section>  
         </div>
-        <div>
-          <img class="[ icon ]" src="images/image-avatar.png" alt="">
+        <div class="[ login ][ flex-center pointer ]">
+          <img src="images/image-avatar.png" alt="">
         </div>
       </div>
-      <section class="[ cart ][ bg-white ]" data-name="shopCart" data-shop-cart-state="hidden">
-        <h4>Cart</h4>
-        <div class="[ cart__content ][ grid-auto-row ]" data-shop-cart-container="empty">
-          <p class="[ text-center ]">Your cart is empty.</p>
-        </div>
-      </section>  
     </header>
     <div class="[ content ][ grid-even-columns-300 ]">
-      <section class="[ carousel ]" data-name="carousel">
-        <ul class="[ slider ][ grid-auto-flow ]" data-name="slider"></ul>
-        <div class="[ carousel__arrow arrow-previous icon ][ bg-white ]" data-name='previousArrow' data-display-arrow="hidden">
+      <section class="[ carousel ][ relative ]" data-name="carousel">
+        <ul class="[ slider ][ grid-auto-flow relative ]" data-name="slider"></ul>
+        <div class="[ carousel__arrow arrow-previous ][ bg-white pointer ]" data-name='previousArrow' data-display-arrow="hidden">
           <img src="images/icon-previous.svg" alt="">
         </div>
-        <div class="[ carousel__arrow arrow-next icon ][ bg-white ]" data-name='nextArrow' data-display-arrow="visible">
+        <div class="[ carousel__arrow arrow-next ][ bg-white pointer ]" data-name='nextArrow' data-display-arrow="visible">
           <img src="images/icon-next.svg" alt="">
         </div>
       </section>
@@ -57,15 +63,17 @@
         <h1 class="[ description__title ][ fz-300 fw-800 ]" data-container="product"></h1>
         <p class="[ description__text ][ c-blue-500 fz-100 text-justify ]" data-container="description"></p>
         <div class="[ description__price ][ grid-auto-flow ]">
-          <h2 class="[ price__current ][ fz-300 fw-800 ]" data-container="currentPrice"></h2>
-          <h2 class="[ price__discount ][ fz-100 fw-800 c-orange bg-pale-orange ]" data-container="currentDiscount"></h2>
+          <div class="[ grid-auto-flow ]">
+            <h2 class="[ price__current ][ fz-300 fw-800 ]" data-container="currentPrice"></h2>
+            <h2 class="[ price__discount ][ fz-100 fw-800 c-orange bg-pale-orange ]" data-container="currentDiscount"></h2>
+          </div>
           <h3 class="[ price__old ][ fz-100 c-blue-500 ]" data-container="price"></h3>
         </div>
         <section class="[ buy ][ grid-even-columns-100 ]">
           <div class="[ buy__amount ][ fz-200 bg-blue-100 grid-auto-flow ]">
-            <img class="[ icon ]" src="images/icon-minus.svg" data-name="decreaseAmount" alt="">
+            <img class="[ pointer ]" src="images/icon-minus.svg" data-name="decreaseAmount" alt="">
             <p class="[ current__amount ]" data-name="currentAmount">0</p>
-            <img class="[ icon ]" src="images/icon-plus.svg" data-name="increaseAmount" alt="">
+            <img class="[ pointer ]" src="images/icon-plus.svg" data-name="increaseAmount" alt="">
           </div>
           <button class="[ button ][ fz-100 c-pale-orange bg-orange ]" data-name="addToCart">
             <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">

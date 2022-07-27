@@ -1,4 +1,12 @@
+@use 'colors' as color;
 
+.shopcart__icon{
+    height: 100%;
+    width: fit-content;
+    img{
+        height: 60%;
+    }
+}
 .cart{
     position: absolute;
     border-radius: .50em;
@@ -6,11 +14,11 @@
     left: 5%;
     right: 5%;
     z-index: 2;
-    box-shadow: 0 0 2rem 0 hsl(0, 0%, 0%, 60%);
-    h4{
-        padding: .6em 1em;
-        border-bottom: .125em solid gray;
-    }
+    box-shadow: 0 0 2rem 0 color.$grayishBlue;
+}
+.cart__title{
+    padding: .6em 1em;
+    border-bottom: .125em solid color.$darkBlue;
 }
 [data-shop-cart-container='empty']{
     padding-block: 4em;
@@ -26,7 +34,7 @@
         height: 100%;
     }
 }
-.cart--span{
+.shopcart--span{
     position: absolute;
     border-radius: .25em;
     padding: .15em .50em;

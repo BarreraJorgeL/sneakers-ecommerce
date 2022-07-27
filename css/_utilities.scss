@@ -1,65 +1,57 @@
 
-$orange: hsl(26, 100%, 55%);
-$paleOrange: hsl(25, 100%, 94%);
-
-$darkBlue: hsl(220, 13%, 13%);
-$darkGrayishBlue: hsl(219, 9%, 45%);
-$grayishBlue: hsl(220, 14%, 75%);
-$lightGrayishBlue: hsl(223, 64%, 98%);
-$white: hsl(0, 0%, 100%);
-//$black: (with 75% opacity for lightbox background): hsl(0, 0%, 0%);
+@use 'colors' as color;
 
 // Colors
 .c-orange{
-    color: $orange;
+    color: color.$orange;
 }
 .c-pale-orange{
-    color: $paleOrange;
+    color: color.$paleOrange;
 }
 .c-white{
-    color: $white;
+    color: color.$white;
 }
 .c-blue-100{
-    color: $lightGrayishBlue;
+    color: color.$lightGrayishBlue;
 }
 .c-blue-300{
-    color: $grayishBlue;
+    color: color.$grayishBlue;
 }
 .c-blue-500{
-    color: $darkGrayishBlue;
+    color: color.$darkGrayishBlue;
 }
 .c-blue-900{
-    color: $darkBlue;
+    color: color.$darkBlue;
 }
 .fill-pale-orange{
-    fill: $paleOrange;
+    fill: color.$paleOrange;
 }
 
 // Backgrounds
 .bg-orange{
-    background-color: $orange;
+    background-color: color.$orange;
 }
 .bg-pale-orange{
-    background-color: $paleOrange;
+    background-color: color.$paleOrange;
 }
 .bg-white{
-    background-color: $white;
+    background-color: color.$white;
 }
 .bg-blue-100{
-    background-color: $lightGrayishBlue;
+    background-color: color.$lightGrayishBlue;
 }
 .bg-blue-300{
-    background-color: $grayishBlue;
+    background-color: color.$grayishBlue;
 }
 .bg-blue-500{
-    background-color: $darkGrayishBlue;
+    background-color: color.$darkGrayishBlue;
 }
 .bg-blue-900{
-    background-color: $darkBlue;
+    background-color: color.$darkBlue;
 }
 
 .bd-bottom{
-    border-bottom: .110em solid $darkGrayishBlue;
+    border-bottom: .110em solid color.$darkGrayishBlue;
 }
 
 // Text
@@ -76,13 +68,13 @@ $white: hsl(0, 0%, 100%);
     font-size: .6rem;
 }
 .fz-100{
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(1rem, 5vw, 1.3rem);
 }
 .fz-200{
-    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
 }
 .fz-300{
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 7vw, 3rem);
 }
 
 // Font-weight
@@ -110,7 +102,6 @@ $white: hsl(0, 0%, 100%);
 }
 .grid-auto-row{
     grid-auto-flow: row;
-    gap: 1em;
 }
 .grid-even-columns-300{
     grid-template-columns: repeat(auto-fit, minmax(min(28rem, 100%), 1fr));
@@ -123,4 +114,7 @@ $white: hsl(0, 0%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.pointer{
+    cursor: pointer;
 }

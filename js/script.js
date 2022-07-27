@@ -46,11 +46,9 @@ function setSlidePosition(slide, index){
 }
 function showMobileCarousel(slider, images){
     slider.innerHTML='';
-    let preview = document.querySelector('.preview');
-    console.log(preview)
-    if(preview){
-        preview.parentNode.removeChild(preview);
-        console.log('eliminado')
+    let previewSlide = document.querySelector('[data-name="previewSlide"]');
+    if(previewSlide){
+        previewSlide.parentNode.removeChild(previewSlide);
     }
     images.forEach((image, index) => {
         let firstSlide = (index === 0 ? 'currentSlide' : '');
@@ -63,7 +61,7 @@ function showMobileCarousel(slider, images){
 }
 function showDesktopCarousel(slider, images){
     slider.innerHTML = '';
-    slider.insertAdjacentHTML('beforebegin',`<figure class="[ preview ]"><img src="images/image-product-1.jpg" alt="" data-name="slidePreview"></figure>`)
+    slider.insertAdjacentHTML('beforebegin',`<figure class="[ slide--preview ]" data-name="previewSlide"><img src="images/image-product-1.jpg" alt="" data-name="slidePreview"></figure>`)
     images.forEach((image, index) => {
         let firstSlide = (index === 0 ? 'currentSlide' : '');
         slider.insertAdjacentHTML('beforeend',`<li class="[ slide ]" data-slide-order="${firstSlide}"><img src="images/${image}" alt="" data-name="slideImage"></li>`);
@@ -155,14 +153,14 @@ function toggleShopCart(shopCart){
     }
 }
 const shopcartContainer = document.querySelector('[data-shop-cart-container]')
-const shopcartSpan = document.querySelector('.cart--span')
+const shopcartSpan = document.querySelector('[data-name="shopcartSpan"]')
 function fillCart(shopcartContainer, product){
     let productImage = product.images.thumbnail[0];
     let productTitle = product.product;
     let productPrice = product.getCurrentPrice();
     let amount = document.querySelector('[data-name="currentAmount"]').innerText;
     let trashIcon = 'images/icon-delete.svg';
-    let cartItemDesign = `<div class="[ grid-auto-flow ]"><figure><img src="images/${productImage}"></figure><div><h4>${productTitle}</h4><p>$${productPrice} x ${amount} = <strong class="[ fw-600 ]">$${parseInt(productPrice) * parseInt(amount)}</strong></p></div><img class="[ icon ]" src="${trashIcon}" data-name="deleteProduct"></div>`;
+    let cartItemDesign = `<div class="[ grid-auto-flow ]"><figure><img src="images/${productImage}"></figure><div><h4>${productTitle}</h4><p>$${productPrice} x ${amount} = <strong class="[ fw-600 ]">$${parseInt(productPrice) * parseInt(amount)}</strong></p></div><img class="[ pointer ]" src="${trashIcon}" data-name="deleteProduct"></div>`;
     shopcartContainer.insertAdjacentHTML('afterbegin', cartItemDesign);
 }
 function deleteFromShopCart(shopcartContainer, product){
@@ -221,7 +219,7 @@ document.addEventListener('click', e => {
             toggleShopCart(shopCart);
             break
         case 'slideImage':
-            let previewContainer = document.querySelector('.preview')
+            let previewContainer = document.querySelector('[data-name="previewSlide"]')
             let slides = Array.from(document.querySelectorAll('[data-slide-order]'));
             showPreviewImage(previewContainer, e.target, slides, sneakers.images.large);
             break

@@ -1,11 +1,15 @@
-
 /* HEADER */
 .header{
-    justify-content: space-between;
     padding: 1.6em;
-    img{
-        height: 1.6rem;
-        margin: 0 .4em;
+}
+.header--left{
+    grid-auto-columns: 1fr 3fr;
+    height: 2.5rem;
+}
+.header--rigth{
+    height: 2.5rem;
+    > *{
+        height: 100%;
     }
 }
 .header__menu{
@@ -20,5 +24,30 @@
 }
 .menu > *{
     margin-bottom: 2em;
-    cursor: pointer;
+}
+.menu__icon{
+    width: fit-content;
+    height: 1.8rem;
+    img{
+        height: 100%;
+    }
+}
+.logo{
+    width: fit-content;
+    height: 1.8rem;
+    img{
+        height: 100%;
+    }
+}
+.login{
+    width: 2.5rem;
+    border-radius: 50%;
+    margin-left: auto;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+[data-name="toggleMenu"]{
+    height: 100%;
 }
