@@ -50,7 +50,7 @@
 .shopcart{
     &__icon{
         height: 100%;
-        width: fit-content;
+        width: 3rem;
         img{
             height: 60%;
         }
@@ -77,6 +77,8 @@
         border-bottom: .125em solid color.$darkBlue;
     }
     &__content{
+        overflow-y: scroll;
+        max-height: 30rem;
         figure{
             width: 4rem;
             height: 4rem;

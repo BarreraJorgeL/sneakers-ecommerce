@@ -67,7 +67,7 @@ function showDesktopCarousel(slider, images){
         slider.insertAdjacentHTML('beforeend',`<li class="[ slide ]" data-slide-order="${firstSlide}"><img src="images/${image}" alt="" data-name="slideImage"></li>`);
     })
 }
-function showResponsiveCarousel(mql, slider, largeImages, thumbnails){
+function showCarousel(mql, slider, largeImages, thumbnails){
     if(mql.matches){
         slider.style.transform = 'translateX(0%)'; //makes the slider returns to it's original position
         showDesktopCarousel(slider, thumbnails)
@@ -75,12 +75,13 @@ function showResponsiveCarousel(mql, slider, largeImages, thumbnails){
     }
     showMobileCarousel(slider, largeImages)
 }
+
 let mql = window.matchMedia('(min-width:900px)');
 mql.addEventListener('change', ()=>{
-    showResponsiveCarousel(mql, slider, sneakers.images.large, sneakers.images.thumbnail);
+    showCarousel(mql, slider, sneakers.images.large, sneakers.images.thumbnail);
 });
 
-showResponsiveCarousel(mql, slider, sneakers.images.large, sneakers.images.thumbnail);
+showCarousel(mql, slider, sneakers.images.large, sneakers.images.thumbnail);
 
 fillContent(sneakers, brandContainer, productContainer, descriptionContainer, priceContainer, discountContainer, currentPriceContainer, slider);
 

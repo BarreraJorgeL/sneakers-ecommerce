@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
 /* HEADER */
 .header {
   padding: 1.6em;
@@ -47,7 +57,7 @@
 
 .shopcart__icon {
   height: 100%;
-  width: fit-content;
+  width: 3rem;
 }
 .shopcart__icon img {
   height: 60%;
@@ -73,6 +83,10 @@
 .cart__title {
   padding: 0.6em 1em;
   border-bottom: 0.125em solid hsl(220deg, 13%, 13%);
+}
+.cart__content {
+  overflow-y: scroll;
+  max-height: 30rem;
 }
 .cart__content figure {
   width: 4rem;
@@ -327,15 +341,6 @@
 }
 .button:where(:hover, :focus) {
   opacity: 0.8;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  font-family: sans-serif;
-  line-height: 1.6;
 }
 
 .main {
